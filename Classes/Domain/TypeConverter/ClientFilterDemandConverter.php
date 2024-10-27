@@ -74,6 +74,6 @@ class ClientFilterDemandConverter extends AbstractTypeConverter
     {
         /** @var ServerRequest $request */
         $request = $GLOBALS['TYPO3_REQUEST'];
-        return $request->getQueryParams()['filter'] ?? [];
+        return $request->getParsedBody()['filter'] ?? ($request->getQueryParams()['filter'] ?? []);
     }
 }
